@@ -1,0 +1,25 @@
+import pyautogui as posicaoabrir
+
+#Tempo de espera para o computador pensar
+posicaoabrir.sleep(4)
+
+print(posicaoabrir.position())
+
+#posição do mouse
+posicaoabrir.doubleClick(x=113, y=338)
+
+posicaoabrir.sleep(2)
+
+posicaoabrir.typewrite('https://www.google.com.br/')
+
+posicaoabrir.sleep(2)
+
+posicaoabrir.press('enter')
+
+posicaoabrir.sleep(2)
+
+posicaoabrir.typewrite('Dolar hoje')
+
+posicaoabrir.sleep(2)
+
+posicaoabrir.press('enter')

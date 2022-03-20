@@ -1,0 +1,65 @@
+from selenium import webdriver as selenium_aula
+from selenium.webdriver.common.keys import Keys
+import pyautogui as espera
+
+import xlsxwriter
+
+import os
+meuNavegador = selenium_aula.Chrome()
+meuNavegador.get('https://www.google.com.br/')
+
+espera.sleep(4)
+
+meuNavegador.find_element_by_name('q').send_keys('Dolar hoje')
+
+espera.sleep(2)
+
+meuNavegador.find_element_by_name('q').send_keys(Keys.RETURN)
+
+espera.sleep(2)
+
+valordolar = meuNavegador.find_elements_by_xpath('//*[@id="knowledge-currency__updatable-data-column"]/div[1]/div[2]/span[1]')[0].text
+
+espera.sleep(2)
+
+espera.press('tab')
+espera.press('tab')
+espera.press('tab')
+espera.press('tab')
+espera.press('tab')
+espera.press('tab')
+
+espera.sleep(2)
+
+espera.press('enter')
+
+espera.sleep(2)
+
+meuNavegador.find_element_by_name('q').send_keys('Euro hoje')
+
+espera.sleep(2)
+
+meuNavegador.find_element_by_name('q').send_keys(Keys.RETURN)
+
+espera.sleep(2)
+
+valoreuro = meuNavegador.find_elements_by_xpath('//*[@id="knowledge-currency__updatable-data-column"]/div[1]/div[2]/span[1]')[0].text
+
+nomeCaminhoArquivo = 'C:\\Users\\Desktop\\Desktop\\RPA\\aulaexcel\\Dolar e Euro Google.xlsx'
+planilhaCriada = xlsxwriter.Workbook(nomeCaminhoArquivo)
+sheet1 = planilhaCriada.add_worksheet()
+
+espera.sleep(2)
+
+sheet1.write('A1', 'Dolar')
+sheet1.write('B1', 'Euro')
+sheet1.write('A2', valordolar)
+sheet1.write('B2', valoreuro)
+
+espera.sleep(2)
+
+planilhaCriada.close()
+
+os.startfile(nomeCaminhoArquivo)
+
+print('Automatize você também suas tarefas')

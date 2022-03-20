@@ -1,0 +1,31 @@
+import pyautogui as posicaoarquivo
+
+posicaoarquivo.hotkey('win', 'r')
+
+posicaoarquivo.sleep(2)
+
+posicaoarquivo.typewrite('notepad')
+
+posicaoarquivo.sleep(2)
+
+posicaoarquivo.press('enter')
+
+posicaoarquivo.sleep(2)
+
+posicaoarquivo.typewrite('Ola World')
+
+posicaoarquivo.sleep(2)
+
+fecharjanela = posicaoarquivo.getActiveWindow()
+
+posicaoarquivo.sleep(2)
+
+fecharjanela.close()
+
+posicaoarquivo.sleep(2)
+
+posicaoarquivo.press('tab')
+
+posicaoarquivo.sleep(2)
+
+posicaoarquivo.press('enter')
